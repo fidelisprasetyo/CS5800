@@ -8,6 +8,16 @@ public class CommissionEmployee extends Employee {
         this.grossSales = grossSales;
     }
 
+    @Override
+    public void printEmployeeData() {
+        System.out.println(
+                "First name: " + getFirstName() + "\n" +
+                "Last name: " + getLastName() + "\n" +
+                "SSN: " + getSocialSecurity() + "\n" +
+                "Commission Rate: " + commissionRate + "%\n" +
+                "Gross Salary: $" + grossSales + "\n");
+    }
+
     public void setCommissionRate(int commissionRate) {
         this.commissionRate = commissionRate;
     }

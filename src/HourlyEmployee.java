@@ -8,6 +8,16 @@ public class HourlyEmployee extends Employee {
         this.hoursWorked = hoursWorked;
     }
 
+    @Override
+    public void printEmployeeData() {
+        System.out.println(
+                "First name: " + getFirstName() + "\n" +
+                "Last name: " + getLastName() + "\n" +
+                "SSN: " + getSocialSecurity() + "\n" +
+                "Wage: $" + wage + "\n" +
+                "Hours worked: " + hoursWorked + "\n");
+    }
+
     public void setWage(int wage) {
         this.wage = wage;
     }

@@ -10,5 +10,13 @@ public class InheritanceDriver {
 	    Employee mikeDavenport = new BaseEmployee("Mike", "Davenport", "666-66-6666", 95000);
 	    Employee mahnazVaziri = new CommissionEmployee("Mahnaz", "Vaziri", "777-77-7777", 22, 40000);
 
+	    joeJones.printEmployeeData();
+	    stephSmith.printEmployeeData();
+	    maryQuinn.printEmployeeData();
+	    nicoleDior.printEmployeeData();
+	    renwaChanel.printEmployeeData();
+	    mikeDavenport.printEmployeeData();
+	    mahnazVaziri.printEmployeeData();
+
     }
 }

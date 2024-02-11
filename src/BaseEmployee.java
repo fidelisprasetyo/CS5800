@@ -6,6 +6,15 @@ public class BaseEmployee extends Employee {
         this.baseSalary = baseSalary;
     }
 
+    @Override
+    public void printEmployeeData() {
+        System.out.println(
+                "First name: " + getFirstName() + "\n" +
+                "Last name: " + getLastName() + "\n" +
+                "SSN: " + getSocialSecurity() + "\n" +
+                "Base Salary: $" + baseSalary + "\n");
+    }
+
     public void setBaseSalary(int baseSalary) {
         this.baseSalary = baseSalary;
     }
