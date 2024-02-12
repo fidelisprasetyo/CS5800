@@ -1,4 +1,4 @@
-public abstract class Employee {
+public class Employee {
     private String firstName;
     private String lastName;
     private String socialSecurity;
@@ -9,7 +9,12 @@ public abstract class Employee {
         this.socialSecurity = socialSecurity;
     }
 
-    public abstract void printEmployeeData();
+    public void printEmployeeData() {
+        System.out.println(
+                "First name: " + getFirstName() + "\n" +
+                "Last name: " + getLastName() + "\n" +
+                "SSN: " + getSocialSecurity() + "\n");
+    }
 
     public void setFirstName(String firstName) {
         this.firstName = firstName;
