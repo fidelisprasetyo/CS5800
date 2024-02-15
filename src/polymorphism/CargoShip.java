@@ -11,7 +11,7 @@ public class CargoShip extends Ship {
     @Override
     public void print() {
         System.out.println(
-                "polymorphism.Ship name: " + getName() + "\n" +
+                "Ship name: " + getName() + "\n" +
                 "Cargo capacity (tons): " + cargoCapacity + "\n");
     }
 

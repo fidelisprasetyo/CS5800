@@ -32,14 +32,14 @@ public class Folder {
             indentation.append("\t");
         }
 
-        System.out.println(indentation.toString() + "composition.Folder : " + folderName);
+        System.out.println(indentation.toString() + "Folder : " + folderName);
 
         for(Folder folder : folderList) {
             folder.printHelper(recurCount + 1);
         }
 
         for(File file : fileList) {
-            System.out.println(indentation.toString() + "\tcomposition.File: " + file.getFileName());
+            System.out.println(indentation.toString() + "\tFile: " + file.getFileName());
         }
     }
 

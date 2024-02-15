@@ -13,20 +13,20 @@ public class Course {
     }
 
     public void print() {
-        System.out.println("aggregation.Course name: " + courseName);
+        System.out.println("Course name: " + courseName);
         printInstructors();
         printTextbooks();
     }
 
     private void printInstructors() {
-        System.out.println("aggregation.Instructor(s): ");
+        System.out.println("Instructor(s): ");
         for(Instructor instructor : instructorList) {
             System.out.println("\t" + instructor.getFirstName() + " " + instructor.getLastName());
         }
     }
 
     private void printTextbooks() {
-        System.out.println("aggregation.Textbook(s): ");
+        System.out.println("Textbook(s): ");
         for(Textbook textbook : textbookList) {
             System.out.println("\t" + "Title: " + textbook.getBookTitle());
             System.out.println("\t" + "Author: " + textbook.getAuthor());

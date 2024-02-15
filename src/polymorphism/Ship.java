@@ -11,7 +11,7 @@ public class Ship {
 
     public void print() {
         System.out.println(
-                "polymorphism.Ship name: " + name + "\n" +
+                "Ship name: " + name + "\n" +
                 "Build year: " + year + "\n");
     }
 
