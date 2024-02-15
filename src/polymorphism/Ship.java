@@ -1,3 +1,5 @@
+package polymorphism;
+
 public class Ship {
     private String name;
     private String year;
@@ -9,7 +11,7 @@ public class Ship {
 
     public void print() {
         System.out.println(
-                "Ship name: " + name + "\n" +
+                "polymorphism.Ship name: " + name + "\n" +
                 "Build year: " + year + "\n");
     }
 

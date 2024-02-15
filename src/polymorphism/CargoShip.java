@@ -1,3 +1,5 @@
+package polymorphism;
+
 public class CargoShip extends Ship {
     private int cargoCapacity;
 
@@ -9,7 +11,7 @@ public class CargoShip extends Ship {
     @Override
     public void print() {
         System.out.println(
-                "Ship name: " + getName() + "\n" +
+                "polymorphism.Ship name: " + getName() + "\n" +
                 "Cargo capacity (tons): " + cargoCapacity + "\n");
     }
 

@@ -1,3 +1,5 @@
+package polymorphism;
+
 public class CruiseShip extends Ship {
     private int maxPassengers;
 
@@ -9,7 +11,7 @@ public class CruiseShip extends Ship {
     @Override
     public void print() {
         System.out.println(
-                "Ship name: " + getName() + "\n" +
+                "polymorphism.Ship name: " + getName() + "\n" +
                 "Maximum number of passengers: " + maxPassengers + "\n");
     }
 
