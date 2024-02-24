@@ -5,58 +5,37 @@ public class CompositionDriver {
     public static void main(String[] args) {
 
         Folder demo = new Folder("demo1");
+        demo.addSubfolder("Source Files");
+        demo.addSubfolder("Include Path");
+        demo.addSubfolder("Remote Files");
 
-        Folder sourceFiles = new Folder("Source Files");
-        Folder includePath = new Folder("Include Path");
-        Folder remoteFiles = new Folder("Remote Files");
+        demo.getSubFolder("Source Files").addSubfolder(".phalcon");
+        demo.getSubFolder("Source Files").addSubfolder("app");
+        demo.getSubFolder("Source Files").addSubfolder("cache");
+        demo.getSubFolder("Source Files").addSubfolder("public");
 
-        Folder phalcon = new Folder(".phalcon");
-        Folder app = new Folder("app");
+        demo.getSubFolder("Source Files").getSubFolder("app").addSubfolder("config");
+        demo.getSubFolder("Source Files").getSubFolder("app").addSubfolder("controllers");
+        demo.getSubFolder("Source Files").getSubFolder("app").addSubfolder("library");
+        demo.getSubFolder("Source Files").getSubFolder("app").addSubfolder("migrations");
+        demo.getSubFolder("Source Files").getSubFolder("app").addSubfolder("models");
+        demo.getSubFolder("Source Files").getSubFolder("app").addSubfolder("views");
 
-        Folder config = new Folder("config");
-        Folder controllers = new Folder("controllers");
-        Folder library = new Folder("library");
-        Folder migrations = new Folder("migrations");
-        Folder models = new Folder("models");
-        Folder views = new Folder("views");
-
-        Folder cache = new Folder("cache");
-        Folder publicFolder = new Folder("public");
-
-        File htaccess = new File(".htaccess");
-        File htrouter = new File(".htrouter.php");
-        File index = new File("index.html");
-
-        demo.addFolder(sourceFiles);
-        demo.addFolder(includePath);
-        demo.addFolder(remoteFiles);
-
-        sourceFiles.addFolder(phalcon);
-        sourceFiles.addFolder(app);
-        sourceFiles.addFolder(cache);
-        sourceFiles.addFolder(publicFolder);
-        sourceFiles.addFile(htaccess);
-        sourceFiles.addFile(htrouter);
-        sourceFiles.addFile(index);
-
-        app.addFolder(config);
-        app.addFolder(controllers);
-        app.addFolder(library);
-        app.addFolder(migrations);
-        app.addFolder(models);
-        app.addFolder(views);
+        demo.getSubFolder("Source Files").getSubFolder("public").addFile(".htaccess");
+        demo.getSubFolder("Source Files").getSubFolder("public").addFile(".htrouter.php");
+        demo.getSubFolder("Source Files").getSubFolder("public").addFile("index.html");
 
         System.out.println(">> Full structure:");
         demo.print();
 
         // delete app folder
         System.out.println("\n>> Full structure after app folder deletion:");
-        sourceFiles.deleteFolder(app);
+        demo.getSubFolder("Source Files").deleteSubfolder("app");
         demo.print();
 
         // delete public folder
         System.out.println("\n>> Full structure after app & public folder deletion:");
-        sourceFiles.deleteFolder(publicFolder);
+        demo.getSubFolder("Source Files").deleteSubfolder("public");
         demo.print();
 
     }

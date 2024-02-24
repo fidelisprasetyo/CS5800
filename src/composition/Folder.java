@@ -8,18 +8,48 @@ public class Folder {
     private List<Folder> folderList;
     private List<File> fileList;
 
-    public Folder(String folderName) {
-        this.folderName = folderName;
+    public Folder() {
         this.folderList = new ArrayList<>();
         this.fileList = new ArrayList<>();
     }
 
-    public void deleteFolder(Folder folder) {
-        folderList.remove(folder);
+    public Folder(String folderName) {
+        this.folderList = new ArrayList<>();
+        this.fileList = new ArrayList<>();
+        this.folderName = folderName;
     }
 
-    public void deleteFile(File file) {
-        fileList.remove(file);
+    public void addSubfolder(String subfolderName) {
+        Folder subFolder = new Folder();
+        subFolder.setFolderName(subfolderName);
+        folderList.add(subFolder);
+    }
+
+    public void deleteSubfolder(String subfolderName) {
+        for(Folder folder : folderList) {
+            if(subfolderName.equals(folder.getFolderName())) {
+                this.folderList.remove(folder);
+                break;
+            }
+        }
+    }
+
+    public void addFile(String fileName) {
+        File file = new File(fileName);
+        fileList.add(file);
+    }
+
+    public boolean deleteFile(File file) {
+        return this.fileList.remove(file);
+    }
+
+    public Folder getSubFolder(String subfolderName) {
+        for(Folder folder : folderList) {
+            if(subfolderName.equals(folder.getFolderName())) {
+                return folder;
+            }
+        }
+        return new Folder();
     }
 
     public void print() {
@@ -43,32 +73,8 @@ public class Folder {
         }
     }
 
-    public void addFolder(Folder folder) {
-        folderList.add(folder);
-    }
-
-    public void addFile(File file) {
-        fileList.add(file);
-    }
-
-    public void setFolderList(List<Folder> folderList) {
-        this.folderList = folderList;
-    }
-
-    public void setFileList(List<File> fileList) {
-        this.fileList = fileList;
-    }
-
     public void setFolderName(String folderName) {
         this.folderName = folderName;
-    }
-
-    public List<Folder> getFolderList() {
-        return folderList;
-    }
-
-    public List<File> getFileList() {
-        return fileList;
     }
 
     public String getFolderName() {
