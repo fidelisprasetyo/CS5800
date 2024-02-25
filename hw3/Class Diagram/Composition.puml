@@ -23,6 +23,6 @@ class Folder {
     + printFolderContents(): void
 }
 
-File "*" --* "1" Folder : composition
-Folder "*" --* "1" Folder : composition
+Folder "1" *-- "*" File : composition
+Folder "1" *-- "*" Folder : composition
 @enduml

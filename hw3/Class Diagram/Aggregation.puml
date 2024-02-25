@@ -1,5 +1,4 @@
 @startuml
-
 class Course {
     - name: String
     - instructors: ArrayList<Instructor>
@@ -41,7 +40,7 @@ class Textbook {
     + toString(): String
 }
 
+Course "1" o-- "*" Instructor : aggregation
+Course "1" o-- "*" Textbook : aggregation
 
-Instructor "*" --o "1" Course : aggregation
-Textbook "*" --o "1" Course : aggregation
 @enduml
