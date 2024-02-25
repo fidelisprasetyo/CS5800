@@ -22,7 +22,7 @@ object "<u>ships[2] : CargoShip</u>" as cargoShip2 {
     cargoCapacityInTonnage = 220940
 }
 
-ship1 <-- cruiseShip1
-ship2 <-- cargoShip2
+ship1 <|-- cruiseShip1
+ship2 <|-- cargoShip2
 
 @enduml
