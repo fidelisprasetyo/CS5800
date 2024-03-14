@@ -1,6 +1,6 @@
 package pizza;
 
-public class PizzaDriver {
+public class PizzaDemo {
     public static void main(String[] args) {
         // Create a driver program to create three pizzas one of each size with 3, 6, and 9 toppings
 
