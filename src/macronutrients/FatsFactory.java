@@ -1,26 +1,19 @@
 package macronutrients;
 
-import java.util.ArrayList;
-
 public class FatsFactory {
 
-    public static Fats getFats(Diet diet) {
-        switch (diet) {
-            case NO_RESTRICTION:
-                return new RandomFats();
-            case PALEO:
-                return new PaleoFats();
-            case VEGAN:
-                return new VeganFats();
-            case NUT_ALLERGY:
-                return new NoNutFats();
+    public static Fats createFats(String type) {
+        switch (type) {
+            case "avocado":
+                return new Avocado();
+            case "sour cream":
+                return new SourCream();
+            case "tuna":
+                return new Tuna();
+            case "peanuts":
+                return new Peanuts();
             default:
                 return null;
         }
-    }
-
-    public static ArrayList getFatsList(Diet diet) {
-        Fats fats = getFats(diet);
-        return fats.createFatsList();
     }
 }

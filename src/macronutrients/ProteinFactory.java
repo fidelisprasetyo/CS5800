@@ -1,27 +1,20 @@
 package macronutrients;
 
-import java.util.ArrayList;
-
 public class ProteinFactory {
 
-    public static Protein getProtein(Diet diet) {
-        switch (diet) {
-            case NO_RESTRICTION:
-                return new RandomProtein();
-            case PALEO:
-                return new PaleoProtein();
-            case VEGAN:
-                return new VeganProtein();
-            case NUT_ALLERGY:
-                return new NoNutProtein();
+    public static Protein createProtein(String type) {
+        switch (type) {
+            case "fish":
+                return new Fish();
+            case "chicken":
+                return new Chicken();
+            case "beef":
+                return new Beef();
+            case "tofu":
+                return new Tofu();
             default:
                 return null;
         }
-    }
-
-    public static ArrayList getProteinList(Diet diet) {
-        Protein protein = getProtein(diet);
-        return protein.createProteinList();
     }
 
 }

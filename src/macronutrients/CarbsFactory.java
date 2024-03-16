@@ -1,26 +1,19 @@
 package macronutrients;
 
-import java.util.ArrayList;
-
 public class CarbsFactory {
 
-    public static Carbs getCarbs(Diet diet) {
-        switch (diet) {
-            case NO_RESTRICTION:
-                return new RandomCarbs();
-            case PALEO:
-                return new PaleoCarbs();
-            case VEGAN:
-                return new VeganCarbs();
-            case NUT_ALLERGY:
-                return new NoNutCarbs();
+    public static Carbs createCarbs(String type) {
+        switch (type) {
+            case "cheese":
+                return new Cheese();
+            case "bread":
+                return new Bread();
+            case "lentils":
+                return new Lentils();
+            case "pistachio":
+                return new Pistachio();
             default:
                 return null;
         }
-    }
-
-    public static ArrayList getCarbsList(Diet diet) {
-        Carbs carbs = getCarbs(diet);
-        return carbs.createCarbsList();
     }
 }
