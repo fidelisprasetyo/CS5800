@@ -2,16 +2,31 @@ package macronutrients;
 
 public class NoNutMacrosFactory extends MacrosFactory {
 
+    private static NoNutMacrosFactory instance = null;
+
+    private NoNutMacrosFactory() {
+        this.carbsFactory = CarbsFactory.getInstance();
+        this.proteinFactory = ProteinFactory.getInstance();
+        this.fatsFactory = FatsFactory.getInstance();
+    }
+
+    public static NoNutMacrosFactory getInstance() {
+        if (instance == null) {
+            instance = new NoNutMacrosFactory();
+        }
+        return instance;
+    }
+
     @Override
     public Carbs createCarbs() {
         int carbsCount = 3;
         switch (randomInt(carbsCount)) {
             case 0:
-                return CarbsFactory.createCarbs("cheese");
+                return carbsFactory.createCarbs("cheese");
             case 1:
-                return CarbsFactory.createCarbs("bread");
+                return carbsFactory.createCarbs("bread");
             case 2:
-                return CarbsFactory.createCarbs("lentils");
+                return carbsFactory.createCarbs("lentils");
             default:
                 return null;
         }
@@ -22,13 +37,13 @@ public class NoNutMacrosFactory extends MacrosFactory {
         int proteinCount = 4;
         switch (randomInt(proteinCount)) {
             case 0:
-                return ProteinFactory.createProtein("fish");
+                return proteinFactory.createProtein("fish");
             case 1:
-                return ProteinFactory.createProtein("chicken");
+                return proteinFactory.createProtein("chicken");
             case 2:
-                return ProteinFactory.createProtein("beef");
+                return proteinFactory.createProtein("beef");
             case 3:
-                return ProteinFactory.createProtein("tofu");
+                return proteinFactory.createProtein("tofu");
             default:
                 return null;
         }
@@ -39,11 +54,11 @@ public class NoNutMacrosFactory extends MacrosFactory {
         int fatsCount = 3;
         switch (randomInt(fatsCount)) {
             case 0:
-                return FatsFactory.createFats("avocado");
+                return fatsFactory.createFats("avocado");
             case 1:
-                return FatsFactory.createFats("sour cream");
+                return fatsFactory.createFats("sour cream");
             case 2:
-                return FatsFactory.createFats("tuna");
+                return fatsFactory.createFats("tuna");
             default:
                 return null;
         }

@@ -5,13 +5,13 @@ public class MacrosFactoryCreator {
     public static MacrosFactory createFactory(Diet diet) {
         switch (diet) {
             case NO_RESTRICTION:
-                return new NoRestrictionMacrosFactory();
+                return NoRestrictionMacrosFactory.getInstance();
             case PALEO:
-                return new PaleoMacrosFactory();
+                return PaleoMacrosFactory.getInstance();
             case VEGAN:
-                return new VeganMacrosFactory();
+                return VeganMacrosFactory.getInstance();
             case NUT_ALLERGY:
-                return new NoNutMacrosFactory();
+                return NoNutMacrosFactory.getInstance();
             default:
                 System.out.println("Specify a valid diet plan");
                 return null;

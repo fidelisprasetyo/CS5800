@@ -2,9 +2,24 @@ package macronutrients;
 
 public class PaleoMacrosFactory extends MacrosFactory {
 
+    private static PaleoMacrosFactory instance = null;
+
+    private PaleoMacrosFactory() {
+        this.carbsFactory = CarbsFactory.getInstance();
+        this.proteinFactory = ProteinFactory.getInstance();
+        this.fatsFactory = FatsFactory.getInstance();
+    }
+
+    public static PaleoMacrosFactory getInstance() {
+        if (instance == null) {
+            instance = new PaleoMacrosFactory();
+        }
+        return instance;
+    }
+
     @Override
     public Carbs createCarbs() {
-        return CarbsFactory.createCarbs("pistachio");
+        return carbsFactory.createCarbs("pistachio");
     }
 
     @Override
@@ -12,11 +27,11 @@ public class PaleoMacrosFactory extends MacrosFactory {
         int PROTEIN_COUNT = 3;
         switch (randomInt(PROTEIN_COUNT)) {
             case 0:
-                return ProteinFactory.createProtein("fish");
+                return proteinFactory.createProtein("fish");
             case 1:
-                return ProteinFactory.createProtein("chicken");
+                return proteinFactory.createProtein("chicken");
             case 2:
-                return ProteinFactory.createProtein("beef");
+                return proteinFactory.createProtein("beef");
             default:
                 return null;
         }
@@ -27,11 +42,11 @@ public class PaleoMacrosFactory extends MacrosFactory {
         int FATS_COUNT = 3;
         switch (randomInt(FATS_COUNT)) {
             case 0:
-                return FatsFactory.createFats("avocado");
+                return fatsFactory.createFats("avocado");
             case 1:
-                return FatsFactory.createFats("tuna");
+                return fatsFactory.createFats("tuna");
             case 2:
-                return FatsFactory.createFats("peanuts");
+                return fatsFactory.createFats("peanuts");
             default:
                 return null;
         }

@@ -2,16 +2,31 @@ package macronutrients;
 
 public class VeganMacrosFactory extends MacrosFactory {
 
+    private static VeganMacrosFactory instance = null;
+
+    private VeganMacrosFactory() {
+        this.carbsFactory = CarbsFactory.getInstance();
+        this.proteinFactory = ProteinFactory.getInstance();
+        this.fatsFactory = FatsFactory.getInstance();
+    }
+
+    public static VeganMacrosFactory getInstance() {
+        if (instance == null) {
+            instance = new VeganMacrosFactory();
+        }
+        return instance;
+    }
+
     @Override
     public Carbs createCarbs() {
         int carbsCount = 3;
         switch (randomInt(carbsCount)) {
             case 0:
-                return CarbsFactory.createCarbs("bread");
+                return carbsFactory.createCarbs("bread");
             case 1:
-                return CarbsFactory.createCarbs("lentils");
+                return carbsFactory.createCarbs("lentils");
             case 2:
-                return CarbsFactory.createCarbs("pistachio");
+                return carbsFactory.createCarbs("pistachio");
             default:
                 return null;
         }
@@ -19,7 +34,7 @@ public class VeganMacrosFactory extends MacrosFactory {
 
     @Override
     public Protein createProtein() {
-        return ProteinFactory.createProtein("tofu");
+        return proteinFactory.createProtein("tofu");
     }
 
     @Override
@@ -27,9 +42,9 @@ public class VeganMacrosFactory extends MacrosFactory {
         int fatsCount = 2;
         switch (randomInt(fatsCount)) {
             case 0:
-                return FatsFactory.createFats("avocado");
+                return fatsFactory.createFats("avocado");
             case 1:
-                return FatsFactory.createFats("peanuts");
+                return fatsFactory.createFats("peanuts");
             default:
                 return null;
         }

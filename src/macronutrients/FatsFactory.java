@@ -2,7 +2,18 @@ package macronutrients;
 
 public class FatsFactory {
 
-    public static Fats createFats(String type) {
+    private static FatsFactory fatsFactory = null;
+
+    private FatsFactory(){}
+
+    public static FatsFactory getInstance() {
+        if (fatsFactory == null) {
+            fatsFactory = new FatsFactory();
+        }
+        return fatsFactory;
+    }
+
+    public Fats createFats(String type) {
         switch (type) {
             case "avocado":
                 return new Avocado();
