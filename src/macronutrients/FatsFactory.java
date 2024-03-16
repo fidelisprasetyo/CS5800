@@ -1,84 +1,26 @@
 package macronutrients;
 
-import java.util.Random;
+import java.util.ArrayList;
 
-public class FatsFactory extends MacrosAbstractFactory {
+public class FatsFactory {
 
-    @Override
-    public Fats getFats(Diet diet) {
-        Fats fats;
+    public static Fats getFats(Diet diet) {
         switch (diet) {
             case NO_RESTRICTION:
-                fats = returnRandomFats();
-                break;
+                return new RandomFats();
             case PALEO:
+                return new PaleoFats();
             case VEGAN:
-                fats = returnPaleoFats();
-                break;
+                return new VeganFats();
             case NUT_ALLERGY:
-                fats = returnNoNutFats();
-                break;
-            default:
-                return null;
-        }
-        assert fats != null;
-        return fats.createFats();
-    }
-
-    @Override
-    public Carbs getCarbs(Diet diet) {
-        return null;
-    }
-
-    @Override
-    public Protein getProtein(Diet diet) {
-        return null;
-    }
-
-    private static Fats returnRandomFats() {
-        Random random = new Random();
-        int randomInt = random.nextInt(4);
-        switch (randomInt) {
-            case 0:
-                return new Avocado();
-            case 1:
-                return new SourCream();
-            case 2:
-                return new Tuna();
-            case 3:
-                return new Peanuts();
+                return new NoNutFats();
             default:
                 return null;
         }
     }
 
-    private static Fats returnPaleoFats() {
-        Random random = new Random();
-        int randomInt = random.nextInt(3);
-        switch (randomInt) {
-            case 0:
-                return new Avocado();
-            case 1:
-                return new Tuna();
-            case 2:
-                return new Peanuts();
-            default:
-                return null;
-        }
-    }
-
-    private static Fats returnNoNutFats() {
-        Random random = new Random();
-        int randomInt = random.nextInt(3);
-        switch (randomInt) {
-            case 0:
-                return new Avocado();
-            case 1:
-                return new SourCream();
-            case 2:
-                return new Tuna();
-            default:
-                return null;
-        }
+    public static ArrayList getFatsList(Diet diet) {
+        Fats fats = getFats(diet);
+        return fats.createFatsList();
     }
 }

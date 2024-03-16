@@ -1,5 +1,7 @@
 package macronutrients;
 
-public abstract class Carbs extends Macros {
-    abstract Carbs createCarbs();
+import java.util.ArrayList;
+
+public abstract class Carbs {
+    abstract ArrayList<String> createCarbsList();
 }

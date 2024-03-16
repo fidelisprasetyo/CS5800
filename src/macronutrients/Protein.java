@@ -1,5 +1,7 @@
 package macronutrients;
 
-public abstract class Protein extends Macros {
-    abstract Protein createProtein();
+import java.util.ArrayList;
+
+public abstract class Protein {
+    abstract ArrayList<String> createProteinList();
 }
